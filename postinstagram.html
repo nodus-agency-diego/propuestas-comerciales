@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nodus Agency - Presentación Comercial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #003840;
+            --secondary: #006573;
+            --accent: #50e1f9;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Contenedor de diapositivas */
+        .slides-wrapper {
+            scroll-snap-type: y mandatory;
+            overflow-y: auto;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .slide {
+            scroll-snap-align: start;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 40px;
+            background-color: var(--white);
+            overflow: hidden;
+        }
+
+        .slide-content {
+            max-width: 1100px;
+            width: 100%;
+            z-index: 2;
+        }
+
+        /* Estilos de Tipografía */
+        h1, h2, h3 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--primary);
+        }
+
+        .display-1 { font-size: 4.5rem; font-weight: 800; line-height: 1.1; }
+        .display-2 { font-size: 3rem; font-weight: 800; margin-bottom: 1.5rem; border-left: 6px solid var(--accent); padding-left: 20px; }
+        
+        p { font-size: 1.25rem; line-height: 1.6; color: var(--text-light); }
+
+        /* Variantes de Diapositiva */
+        .slide-dark { background-color: var(--primary); color: var(--white); }
+        .slide-dark h1, .slide-dark h2, .slide-dark p { color: var(--white); }
+        .slide-dark .display-2 { border-color: var(--accent); }
+
+        /* Grid Layouts */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+
+        /* Componentes */
+        .badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--accent);
+            color: var(--primary);
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .icon-box {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .price-tag {
+            font-size: 6rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        /* Navegación */
+        .nav-controls {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .nav-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.2s;
+        }
+
+        .nav-btn:hover { background: var(--secondary); transform: scale(1.1); }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 35px;
+            background: #25d366;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        /* Imágenes */
+        .img-featured {
+            width: 100%;
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .display-1 { font-size: 2.5rem; }
+            .display-2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slides-wrapper" id="slider">
+        
+        <!-- Diapositiva 1: Portada -->
+        <section class="slide slide-dark">
+            <div class="slide-content">
+                <span class="badge">Propuesta 2024</span>
+                <h1 class="display-1">Nodus Agency</h1>
+                <p style="font-size: 2rem; margin-top: 10px; opacity: 0.9;">Presencia digital que impulsa resultados.</p>
+                <div style="margin-top: 40px; height: 4px; width: 100px; background: var(--accent);"></div>
+            </div>
+        </section>
+
+        <!-- Diapositiva 2: El Problema -->
+        <section class="slide">
+            <div class="slide-content">
+                <div class="grid-2">
+                    <div>
+                        <h2 class="display-2">¿Tu negocio es invisible?</h2>
+                        <p>Sin una página web profesional, estás perdiendo clientes que ya te están buscando en Google.</p>
+                        <ul style="margin-top: 25px; list-style: none;">
+                            <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-times-circle" style="color: #ef4444;"></i> Poca credibilidad ante nuevos clientes.
+                            </li>
+                            <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-times-circle" style="color: #ef4444;"></i> Ventas limitadas a tu alcance físico.
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 10px;">
+                                <i class="fas fa-times-circle" style="color: #ef4444;"></i> Desventaja total frente a la competencia.
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800" alt="Negocio invisible" class="img-featured">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diapositiva 3: La Solución -->
+        <section class="slide" style="background-color: var(--bg-light);">
+            <div class="slide-content">
+                <h2 class="display-2">La Solución Nodus</h2>
+                <div class="grid-2" style="grid-template-columns: repeat(3, 1fr); gap: 20px;">
+                    <div class="card">
+                        <div class="icon-box"><i class="fas fa-rocket"></i></div>
+                        <h3>Landing Pro</h3>
+                        <p style="font-size: 1rem;">Una página enfocada 100% en captar clientes.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon-box"><i class="fab fa-whatsapp"></i></div>
+                        <h3>Conversión Directa</h3>
+                        <p style="font-size: 1rem;">Botones estratégicos para que te contacten al instante.</p>
+                    </div>
+                    <div class="card">
+                        <div class="icon-box"><i class="fas fa-bolt"></i></div>
+                        <h3>Entrega 48h</h3>
+                        <p style="font-size: 1rem;">Velocidad récord para que no pierdas ni un día más.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diapositiva 4: Oferta -->
+        <section class="slide slide-dark">
+            <div class="slide-content text-center" style="text-align: center;">
+                <h2 class="display-2" style="border: none; padding: 0;">Inversión Especial</h2>
+                <div class="price-tag" style="color: var(--accent);">$60 <span style="font-size: 2rem;">USD</span></div>
+                <p style="margin-top: 20px; font-weight: 600;">Un solo pago. Sin mensualidades ocultas.</p>
+                <div style="margin-top: 40px;">
+                    <a href="#" class="btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> Quiero mi página ahora
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Controles de Navegación -->
+    <div class="nav-controls">
+        <button class="nav-btn" onclick="scrollPrev()"><i class="fas fa-chevron-up"></i></button>
+        <button class="nav-btn" onclick="scrollNext()"><i class="fas fa-chevron-down"></i></button>
+    </div>
+
+    <script>
+        const slider = document.getElementById('slider');
+        
+        function scrollNext() {
+            slider.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+        }
+        
+        function scrollPrev() {
+            slider.scrollBy({ top: -window.innerHeight, behavior: 'smooth' });
+        }
+
+        // Soporte para flechas del teclado
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown') scrollNext();
+            if (e.key === 'ArrowUp') scrollPrev();
+        });
+    </script>
+</body>
+</html>
